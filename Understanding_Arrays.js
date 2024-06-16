@@ -109,5 +109,26 @@ var lastPos = names.lastIndexOf(name);
 console.log("Last found " + name + " at position " + lastPos);
 
 
+// String Represntation of Arrays
+var names = ["David", "Cynthia", "Raymond", "Clayton", "Mike", "Jennifer"];
+var namestr = names.join();
+console.log('namestr', namestr); // David,Cynthia,Raymond,Clayton,Mike,Jennifer
+namestr = names.toString();
+console.log('namestr', namestr); // David,Cynthia,Raymond,Clayton,Mike,Jennifer
+
+// Creating new arrays from existing arrays
+var cisDept = ["Mike", "Clayton", "Terrill", "Danny", "Jennifer"];
+var dmpDept = ["Raymond", "Cynthia", "Bryan"];
+var itDiv = cisDept.concat(dmpDept);
+console.log('itDiv', itDiv);
+var itDiv2 = dmpDept.concat(cisDept);
+console.log('itDiv2', itDiv2);
+
+var itDiv = ["Mike", "Clayton", "Terrill", "Raymond", "Cynthia", "Danny", "Jennifer"];
+var dmpDept = itDiv.splice(3, 3);
+var cisDept = itDiv;
+console.log('dmpDept', dmpDept); // Raymond,Cynthia,Danny
+console.log('cisDept', cisDept); // Mike,Clayton,Terrill,Jennifer
+
 
 

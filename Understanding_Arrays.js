@@ -176,3 +176,57 @@ for (var i = 0; i < nums.length; ++i) {
 }
 console.log(nums); // 1,2,3,4,5,
 console.log(nums.length);
+
+//Adding and removing elements from middle of an array
+var nums = [1, 2, 3, 7, 8, 9];
+var newElements = [4, 5, 6];
+nums.splice(3, 0, newElements);
+console.log(nums); // 1,2,3,4,5,6,7,8,9
+
+//no need to pass newElements array
+//adding elements using splice
+var nums = [1, 2, 3, 7, 8, 9];
+nums.splice(3, 0, 4, 5, 6);
+console.log(nums);
+
+//removing elements using splice
+var nums = [1, 2, 3, 100, 200, 300, 400, 4, 5];
+nums.splice(3, 4);
+console.log(nums); // 1,2,3,4,5
+
+/*Putting array elements in order*/
+// using reverse
+var nums = [1, 2, 3, 4, 5];
+nums.reverse();
+console.log(nums); // 5,4,3,2,1
+
+//using sort on array of strings 
+var names = ["David", "Mike", "Cynthia", "Clayton", "Bryan", "Raymond"];
+names.sort();
+console.log(names); // Bryan,Clayton,Cynthia,David,Mike,Raymond
+
+//using sort on array of numbers
+var nums = [3, 1, 2, 100, 4, 200];
+nums.sort();
+console.log(nums); // 1,100,2,200,3,4
+
+//for ascending order
+function compareAsc(num1, num2) {
+    return num1 - num2;
+}
+
+var nums = [3, 1, 2, 100, 4, 200];
+nums.sort(compareAsc);
+console.log(nums); // 1,2,3,4,100,200
+
+//for descending order
+function compareDesc(num1, num2) {
+    return num2 - num1;
+}
+
+var nums = [3, 1, 2, 100, 4, 200];
+nums.sort(compareDesc);
+console.log(nums);
+
+
+

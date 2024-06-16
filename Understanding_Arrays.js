@@ -228,5 +228,82 @@ var nums = [3, 1, 2, 100, 4, 200];
 nums.sort(compareDesc);
 console.log(nums);
 
+//Iterator Functions
+//Non-Array generating Iterator functions
+//forEach - method
+function square(num) {
+    console.log(num, num * num);
+}
+var nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+nums.forEach(square);
+console.log(nums);
+
+//every - method
+function isEven(num) {
+    return num % 2 == 0;
+}
+var nums = [2, 4, 6, 8, 10];
+console.log(nums);
+var even = nums.every(isEven);
+if (even) {
+    console.log("all numbers are even");
+}
+else {
+    console.log("not all numbers are even");
+}
+var nums = [2, 4, 6, 7, 8, 10];
+console.log(nums);
+var even = nums.every(isEven);
+if (even) {
+    console.log("all numbers are even");
+}
+else {
+    console.log("not all numbers are even");
+}
+
+//some - method
+var nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+console.log(nums);
+var someEven = nums.some(isEven);
+if (someEven) {
+    console.log("some numbers are even");
+}
+else {
+    console.log("no numbers are even");
+}
+nums = [1, 3, 5, 7, 9];
+console.log(nums);
+someEven = nums.some(isEven);
+if (someEven) {
+    console.log("some numbers are even");
+}
+else {
+    console.log("no numbers are even");
+}
+
+
+// reduce - method
+function add(runningTotal, currentValue) {
+    return runningTotal + currentValue;
+}
+var nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+var sum = nums.reduce(add);
+console.log('nums', nums, 'sum:', sum);
+
+// reduce - method on strings
+function concat(accumulatedString, item) {
+    return accumulatedString + item;
+}
+var words = ["the ", "quick ", "brown ", "fox "];
+var sentence = words.reduce(concat);
+console.log(words, sentence);
+
+// reduceRight - method on strings
+function concat(accumulatedString, item) {
+    return accumulatedString + item;
+}
+var words = ["the ", "quick ", "brown ", "fox "];
+var sentence = words.reduceRight(concat);
+console.log(words, sentence);
 
 

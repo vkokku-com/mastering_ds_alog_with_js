@@ -131,4 +131,48 @@ console.log('dmpDept', dmpDept); // Raymond,Cynthia,Danny
 console.log('cisDept', cisDept); // Mike,Clayton,Terrill,Jennifer
 
 
+/* Mutator Functions */
+// Adding Elements to an array
+var nums = [1, 2, 3, 4, 5];
+console.log('nums', nums); // 1,2,3,4,5
+nums.push(6);
+console.log('nums', nums); // 1,2,3,4,5,6
 
+// Using push() is more intuitive than using the length property to extend an array:
+var nums = [1, 2, 3, 4, 5];
+console.log(nums); // 1,2,3,4,5
+nums[nums.length] = 6;
+console.log(nums); // 1,2,3,4,5,6
+
+//insert element at the beginning without unshift
+var nums = [2, 3, 4, 5];
+var newnum = 1;
+var N = nums.length;
+for (var i = N; i >= 0; --i) {
+    nums[i] = nums[i - 1];
+}
+nums[0] = newnum;
+console.log(nums); // 1,2,3,4,5
+
+//Using unshift
+var nums = [2, 3, 4, 5];
+console.log(nums); // 2,3,4,5
+var newnum = 1;
+nums.unshift(newnum);
+console.log(nums); // 1,2,3,4,5
+nums = [3, 4, 5];
+nums.unshift(newnum, 1, 2);
+console.log(nums); // 1,1,2,3,4,5
+
+//Removing elements from an array
+var nums = [1, 2, 3, 4, 5, 9];
+nums.pop();
+console.log(nums); // 1,2,3,4,5
+
+var nums = [9, 1, 2, 3, 4, 5];
+console.log(nums);
+for (var i = 0; i < nums.length; ++i) {
+    nums[i] = nums[i + 1];
+}
+console.log(nums); // 1,2,3,4,5,
+console.log(nums.length);

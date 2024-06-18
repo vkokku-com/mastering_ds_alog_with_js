@@ -436,3 +436,57 @@ for (var row = 0; row < grades.length; ++row) {
     total = 0;
     average = 0.0;
 }
+
+//Arrays of Objects
+function Point(x, y) {
+    this.x = x;
+    this.y = y;
+}
+function displayPts(arr) {
+    for (var i = 0; i < arr.length; ++i) {
+        console.log(arr[i].x + ", " + arr[i].y);
+    }
+}
+var p1 = new Point(1, 2);
+var p2 = new Point(3, 5);
+var p3 = new Point(2, 8);
+var p4 = new Point(4, 4);
+var points = [p1, p2, p3, p4];
+for (var i = 0; i < points.length; ++i) {
+    console.log("Point " + parseInt(i + 1) + ": " + points[i].x + ", " +
+        points[i].y);
+}
+var p5 = new Point(12, -3);
+points.push(p5);
+console.log("After push: ");
+displayPts(points);
+points.shift();
+console.log("After shift: ");
+displayPts(points);
+
+//Array in Objects
+function weekTemps() {
+    this.dataStore = [];
+    this.add = function (temp) {
+        this.dataStore.push(temp);
+    };
+    this.average = function () {
+        var total = 0;
+        for (var i = 0; i < this.dataStore.length; ++i) {
+            total += this.dataStore[i];
+        }
+        return total / this.dataStore.length;
+    };
+}
+
+
+var thisWeek = new weekTemps();
+thisWeek.add(52);
+thisWeek.add(55);
+thisWeek.add(61);
+thisWeek.add(65);
+thisWeek.add(55);
+thisWeek.add(50);
+thisWeek.add(52);
+thisWeek.add(49);
+console.log(thisWeek.average()); // displays 54.875

@@ -490,3 +490,37 @@ thisWeek.add(50);
 thisWeek.add(52);
 thisWeek.add(49);
 console.log(thisWeek.average()); // displays 54.875
+
+/* Create a grades object that stores a set of student grades in an object. 
+Provide a function for adding a grade and a function for displaying the 
+student’s grade average.*/
+
+function Student() {
+    this.grades = [];
+    this.averageGrade = function () {
+        let total = 0;
+        for (let i = 0; i < this.grades.length; ++i) {
+            total += this.grades[i];
+        }
+        return total / this.grades.length;
+    };
+    this.addGrade = function (grade) {
+        this.grades.push(grade);
+    };
+    this.clearGrades = function () {
+        this.grades = [];
+    };
+    this.viewGrades = function () {
+        return this.grades;
+    };
+}
+
+const JohnDoe = new Student();
+JohnDoe.addGrade(45);
+JohnDoe.addGrade(54);
+JohnDoe.addGrade(56);
+JohnDoe.addGrade(67);
+JohnDoe.addGrade(78);
+console.log(JohnDoe.viewGrades());
+console.log(JohnDoe.averageGrade());
+

@@ -524,3 +524,9 @@ JohnDoe.addGrade(78);
 console.log(JohnDoe.viewGrades());
 console.log(JohnDoe.averageGrade());
 
+/* 
+ Store a set of words in an array and display the contents both forward and backward.
+*/
+let weekDays = ['Sunday', 'Monday', 'Tuesday'];
+console.log(weekDays.reverse());
+console.log(weekDays.sort());

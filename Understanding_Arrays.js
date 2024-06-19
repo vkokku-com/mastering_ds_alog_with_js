@@ -590,3 +590,28 @@ console.log(thisMonth.monthsAverage());
 console.log(thisMonth.viewTemp());
 thisMonth.resetTemp();
 console.log(thisMonth.viewTemp());
+
+/*
+Create an object that stores individual letters in an array and has a function for
+displaying the letters as a single word
+*/
+function WordSet(){
+    this.dataStore = [];
+    this.add = function (temp) {
+        this.dataStore.push(temp);
+    };
+    this.viewCharSet = function(){
+      return this.dataStore;  
+    };
+    this.getWord = function(){
+        return this.dataStore.join('');
+    }
+}
+
+const word = new WordSet();
+word.add('K');
+word.add('i');
+word.add('n');
+word.add('g');
+console.log(word.viewCharSet());
+console.log(word.getWord());

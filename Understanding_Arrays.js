@@ -532,3 +532,61 @@ console.log(weekDays);
 console.log(weekDays.reverse());
 console.log(weekDays.sort());
 console.log(weekDays);
+
+/*
+Modify the weeklyTemps object in the chapter so that it stores a month’s worth of
+data using a two-dimensional array. Create functions to display the monthly average,
+a specific week’s average, and all the weeks’ averages.
+*/
+
+function monthTemparatures() {
+    this.dataStore = [];
+    this.add = function (temp) {
+        this.dataStore.push(temp);
+    };
+    this.weeksAverage = function (weekNum) {
+        const total = this.dataStore[weekNum].reduce((runningTotal, currentValue) => {
+            return runningTotal + currentValue;
+        });
+        return total / this.dataStore[weekNum].length;
+    };
+    this.allWeeksAverage = function () {
+        let weeksTotal = 0;
+        this.dataStore.forEach((week, weekNum) => {
+            weeksTotal += this.weeksAverage(weekNum);
+        });
+        return weeksTotal / this.dataStore.length;
+    };
+    this.monthsAverage = function () {
+        let totalTemp = 0;
+        let totalDays = 0;
+        for (let week = 0; week < this.dataStore.length; ++week) {
+            for (let day = 0; day < this.dataStore[week].length; ++day) {
+                totalTemp += this.dataStore[week][day];
+            }
+            totalDays += this.dataStore[week].length;
+        }
+        return totalTemp / totalDays;
+    };
+    this.viewTemp = function () {
+        return this.dataStore;
+    };
+    this.resetTemp = function () {
+        this.dataStore = [];
+    };
+}
+
+
+let thisMonth = new monthTemparatures();
+thisMonth.add([52, 55, 61, 65, 55, 50, 52]);
+thisMonth.add([62, 63, 64, 65, 52, 55, 60]);
+thisMonth.add([60, 61, 52, 53, 60, 64, 55]);
+thisMonth.add([52, 53, 61, 64, 51, 57, 58]);
+thisMonth.add([52, 53, 61]);
+console.log(thisMonth.viewTemp());
+console.log(thisMonth.weeksAverage(1));
+console.log(thisMonth.allWeeksAverage());
+console.log(thisMonth.monthsAverage());
+console.log(thisMonth.viewTemp());
+thisMonth.resetTemp();
+console.log(thisMonth.viewTemp());

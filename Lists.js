@@ -43,4 +43,8 @@ function List() {
     this.getElement = getElement;
     this.length = length;
     this.contains = contains;
+
+    function append(element) {
+        this.dataStore[this.listSize++] = element;
+    }
 }

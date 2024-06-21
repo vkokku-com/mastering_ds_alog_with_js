@@ -27,10 +27,10 @@ function List() {
     this.listSize = 0;
     //this.pos = 0;
     this.dataStore = []; // initializes an empty array to store list elements
-    //this.clear = clear;
+    this.clear = clear;
     this.find = find;
     this.toString = toString;
-    //this.insert = insert;
+    this.insert = insert;
     this.append = append;
     this.remove = remove;
     //this.front = front;
@@ -41,7 +41,7 @@ function List() {
     // this.currPos = currPos;
     // this.moveTo = moveTo;
     // this.getElement = getElement;
-    // this.contains = contains;
+    this.contains = contains;
 
     // Append: Adding an Element to a List
     function append(element) {
@@ -95,6 +95,16 @@ function List() {
         delete this.dataStore;
         this.dataStore = [];
         this.listSize = this.pos = 0;
+    }
+
+    //Contains: Determining if a Given Value Is in a List
+    function contains(element) {
+        for (var i = 0; i < this.dataStore.length; ++i) {
+            if (this.dataStore[i] == element) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

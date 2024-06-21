@@ -44,7 +44,31 @@ function List() {
     this.length = length;
     this.contains = contains;
 
+    // Append: Adding an Element to a List
     function append(element) {
         this.dataStore[this.listSize++] = element;
     }
+
+    // Find: Finding an Element in a List
+    function find(element) {
+        for (var i = 0; i < this.dataStore.length; ++i) {
+            if (this.dataStore[i] == element) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    // Remove: Removing an Element from a List
+    function remove(element) {
+        var foundAt = this.find(element);
+        if (foundAt > -1) {
+            this.dataStore.splice(foundAt, 1);
+            --this.listSize;
+            return true;
+        }
+        return false;
+    }
+
+    
 }

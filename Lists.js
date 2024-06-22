@@ -135,7 +135,7 @@ function List() {
     function moveTo(position) {
         this.pos = position;
     }
-    
+
     function getElement() {
         return this.dataStore[this.pos];
     }
@@ -149,3 +149,19 @@ names.append("Barbara");
 console.log(names.toString());
 names.remove("Raymond");
 console.log(names.toString());
+
+var names = new List();
+names.append("Clayton");
+names.append("Raymond");
+names.append("Cynthia");
+names.append("Jennifer");
+names.append("Bryan");
+names.append("Danny");
+names.front();
+console.log(names.getElement()); // displays Clayton
+names.next();
+console.log(names.getElement()); // displays Raymond
+names.next();
+names.next();
+names.prev();
+console.log(names.getElement()); // displays Cynthia

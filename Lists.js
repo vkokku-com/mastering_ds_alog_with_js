@@ -25,7 +25,7 @@ Each data item stored in a list is called an element.
 
 function List() {
     this.listSize = 0;
-    //this.pos = 0;
+    this.pos = 0;
     this.dataStore = []; // initializes an empty array to store list elements
     this.clear = clear;
     this.find = find;
@@ -33,14 +33,14 @@ function List() {
     this.insert = insert;
     this.append = append;
     this.remove = remove;
-    //this.front = front;
-    // this.end = end;
-    // this.prev = prev;
-    // this.next = next;
+    this.front = front;
+    this.end = end;
+    this.prev = prev;
+    this.next = next;
     this.length = length;
-    // this.currPos = currPos;
-    // this.moveTo = moveTo;
-    // this.getElement = getElement;
+    this.currPos = currPos;
+    this.moveTo = moveTo;
+    this.getElement = getElement;
     this.contains = contains;
 
     // Append: Adding an Element to a List
@@ -165,3 +165,12 @@ names.next();
 names.next();
 names.prev();
 console.log(names.getElement()); // displays Cynthia
+
+// Iterating Through a List
+for (names.front(); names.currPos() < names.length(); names.next()) {
+    console.log(names.getElement());
+}
+
+for (names.end(); names.currPos() >= 0; names.prev()) {
+    console.log(names.getElement());
+}
